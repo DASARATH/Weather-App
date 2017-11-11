@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        applicationId "com.example.gopu.myweather"
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionName "1.0"
+
+        buildConfigField "int", "LIMIT", "100"
+        buildConfigField "String", "BASEURL", "\"http://api.openweathermap.org/\""
+        buildConfigField "String", "APPID", "\"41759ead522ac00fcef9d80653257c1d\""
+        buildConfigField "String", "IMAGE_URL", "\"http://openweathermap.org/img/w/\""
+        buildConfigField "int", "CACHETIME", "432000" // 5days
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "com.android.support:appcompat-v7:25.3.1"
+    compile "com.android.support:design:25.3.1"
+    compile "com.android.support:recyclerview-v7:25.3.1"
+    compile "com.android.support:support-annotations:25.3.1"
+
+    //Retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+
+    //OkHttp
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.squareup.okio:okio:1.7.0'
+
+    //Gson
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+
+    //RxJava
+    compile 'io.reactivex:rxjava:1.1.2'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+
+    //Dagger
+    compile 'com.google.dagger:dagger:2.0'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.0'
+    compile 'org.glassfish:javax.annotation:10.0-b28'
+
+    //ButterKnife
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    //Glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    //Test
+    testCompile 'junit:junit:4.1'
+    compile 'org.mockito:mockito-core:1.10.19'
+    androidTestCompile 'junit:junit:4.1'
+}

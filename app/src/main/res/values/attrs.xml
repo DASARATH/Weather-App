@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ClearableEditTextWidget">
+
+        <attr name="android:hint" />
+        <attr name="android:imeOptions" />
+
+    </declare-styleable>
+
+</resources>
